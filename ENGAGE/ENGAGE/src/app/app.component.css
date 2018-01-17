@@ -1,0 +1,18 @@
+.navbar{
+    background-color: rgba(0, 0, 0, 0.493)
+}
+.navbar-brand{
+    color: white;
+}
+.logo{
+    font-size: 10px;
+    color: rgb(243, 7, 7);
+}
+.heading-hr{
+    border-width: 10% 10%;
+    border-color: brown
+}
+
+.panel{
+    background-color: rgba(240, 248, 255, 0.644)
+}
