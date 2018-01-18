@@ -12541,11 +12541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\ayush\\DemoProject\\ENGAGE\\TestApi\\TestApi.csproj",
+      "projectUniqueName": "D:\\ayush\\DemoProject\\ENGAGE\\TestApi\\TestApi.csproj",
       "projectName": "TestApi",
-      "projectPath": "d:\\ayush\\DemoProject\\ENGAGE\\TestApi\\TestApi.csproj",
+      "projectPath": "D:\\ayush\\DemoProject\\ENGAGE\\TestApi\\TestApi.csproj",
       "packagesPath": "C:\\Users\\Sony\\.nuget\\packages\\",
-      "outputPath": "d:\\ayush\\DemoProject\\ENGAGE\\TestApi\\obj\\",
+      "outputPath": "D:\\ayush\\DemoProject\\ENGAGE\\TestApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

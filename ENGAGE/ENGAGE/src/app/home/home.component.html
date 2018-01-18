@@ -106,6 +106,9 @@
                         <span [hidden]="(agreement.valid || !personForm.submitted)" class="text-danger">*</span>
                 </div>
                 <br/>
+                <div class=" text-center text-danger">
+                    <span  *ngIf="error">Oops! Something is not right..<br> Please try again later!</span>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="btn-form text-center col-xs-12">

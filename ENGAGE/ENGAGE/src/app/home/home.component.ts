@@ -13,6 +13,7 @@ declare var jQuery;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  error: boolean;
   activity;
   person: Person;
   @ViewChild('personForm') form: any;
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
         console.log(JSON.stringify(data));
       },
       error => {
+        this.error=true;
         console.log(error);
       }
     )
@@ -48,8 +50,11 @@ export class HomeComponent implements OnInit {
           this._router.navigate(['/success']);
           console.log("Form Submitted!"+JSON.stringify(this.form.value));
           this.form.reset();
+          this.form.form.markAsPristine();
+          this.error=false;
         },
         error => {
+          this.error=true;
           console.log(error);
         })
       
