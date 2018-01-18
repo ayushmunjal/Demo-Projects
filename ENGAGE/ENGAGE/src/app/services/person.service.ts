@@ -24,9 +24,15 @@ export class PersonService {
   }
   
   add(person:Person):Observable<any>{
-    return this.http.post(this.url+'add',person)
+    let formData: FormData = new FormData(); 
+    formData.append('firstName',person.firstName);
+    formData.append('lastName',person.lastName);
+    formData.append('email',person.email);
+    formData.append('activityId',person.activityId);
+    formData.append('comments',person.comments);
+    return this.http.post(this.url+'add',formData)
     .timeout(3000)
-    .map((response:Response) => response.json())
+    .map((response:Response) => response)
     .catch(this.handleError);
   }
 

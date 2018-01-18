@@ -41,10 +41,20 @@ namespace TestApi.Controllers
         }
 
         [HttpPost("add")]
-        public void Post(Person person)
+        public string Post(Person person)
         {
-            _context.Persons.Add(person);
-            _context.SaveChanges();
+            if (person.firstName!=null && person.lastName!=null 
+            && person.email!=null && person.activityId!=0 && person.comments!=null)
+            {
+                _context.Persons.Add(person);
+                _context.SaveChanges();
+                return "Added Successfully!";
+            }
+            else
+            {
+                return "Invalid Entry!";
+            }
+            
         }
 
         

@@ -17,12 +17,14 @@ export class SuccessComponent implements OnInit {
   constructor(private activityService: ActivityService, private personService: PersonService) { }
 
   ngOnInit() {
+    this.getActivity();
   }
 
   getActivity(){
     this.activityService.get().subscribe(
       data => {
         this.activities=data;
+        this.getPersons();
       },
       error => {
         console.log(error);
@@ -39,6 +41,7 @@ export class SuccessComponent implements OnInit {
             activity:this.activities.filter(z=>z.id==a.activityId).map(a=>a.name)[0]
           }
         ));
+        console.log(JSON.stringify(this.persons));
       },
       error => {
         console.log(error);

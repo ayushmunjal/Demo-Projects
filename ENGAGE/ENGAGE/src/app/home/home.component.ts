@@ -40,8 +40,10 @@ export class HomeComponent implements OnInit {
 
   onSubmit(){
     if (this.form.valid) {
+      console.log(JSON.stringify(this.form.value));
       this.personService.add(this.form.value).subscribe(
         data => {
+          console.log(data);
           jQuery('#sign-up-form').modal('hide');
           this._router.navigate(['/success']);
           console.log("Form Submitted!"+JSON.stringify(this.form.value));
