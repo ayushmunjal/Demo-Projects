@@ -4,6 +4,7 @@ import { AboutComponent }   from './about/about.component';
 import { ActivityComponent }   from './activity/activity.component';
 import { HomeComponent }   from './home/home.component';
 import { SuccessComponent }   from './success/success.component';
+import { HashLocationStrategy } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },

@@ -10,3 +10,39 @@ body{
     background-repeat: no-repeat;
     background-color: rgb(3, 53, 49)
 }
+body .ui-datatable .ui-datatable-thead > tr > th,
+body .ui-datatable .ui-datatable-tfoot > tr > td {
+    background-color: rgb(7, 8, 44);
+    color: white;
+    font-weight: 500;
+}
+
+body .ui-datatable .ui-datatable-header{
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+}
+
+.navbar{
+    background-color: rgba(0, 0, 0, 0.493)
+}
+.navbar-brand{
+    color: white;
+}
+.logo{
+    font-size: 10px;
+    color: rgb(243, 7, 7);
+}
+.heading-hr{
+    border-width: 10% 10%;
+    border-color: brown
+}
+
+.panel{
+    background-color: rgba(240, 248, 255, 0.692)
+}
+
+.error{
+border-left: 5px solid #a94442; 
+}

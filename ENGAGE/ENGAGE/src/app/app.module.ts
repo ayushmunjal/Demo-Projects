@@ -11,7 +11,7 @@ import { AboutComponent } from './about/about.component';
 import {DataTableModule,DropdownModule,SharedModule} from 'primeng/primeng';
 import { ActivityService } from './services/activity.service';
 import { PersonService } from './services/person.service';
-
+import { FormsModule }   from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,    HomeComponent,
@@ -19,7 +19,7 @@ import { PersonService } from './services/person.service';
     AboutComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, AppRoutingModule,
+    BrowserModule, BrowserAnimationsModule, AppRoutingModule, FormsModule,
     DataTableModule,SharedModule, HttpModule, DropdownModule
   ],
   providers: [PersonService,ActivityService],

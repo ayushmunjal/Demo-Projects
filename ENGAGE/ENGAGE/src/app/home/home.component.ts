@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivityService } from '../services/activity.service';
 import { PersonService } from '../services/person.service';
 import {SelectItem} from 'primeng/primeng';
+import { Person } from '../Models/Person';
+import { Router,ActivatedRoute } from '@angular/router';
+
+declare var jQuery;
 
 @Component({
   selector: 'app-home',
@@ -10,15 +14,19 @@ import {SelectItem} from 'primeng/primeng';
 })
 export class HomeComponent implements OnInit {
   activity;
+  person: Person;
+  @ViewChild('personForm') form: any;
 
-  constructor(private activityService : ActivityService) { }
+  constructor(private activityService : ActivityService, private _router: Router,
+  private personService: PersonService) { }
 
   ngOnInit() {
+    this.person = new Person();
     this.getActivity();
   }
 
   getActivity(){
-    this.activityService.getActivity().subscribe(
+    this.activityService.get().subscribe(
       data => {
         this.activity=data.map(a=>({value:a.id,label:a.name}));
         this.activity.unshift({value:null,label:"Select Activity"})
@@ -30,5 +38,20 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  onSubmit(){
+    if (this.form.valid) {
+      this.personService.add(this.form.value).subscribe(
+        data => {
+          jQuery('#sign-up-form').modal('hide');
+          this._router.navigate(['/success']);
+          console.log("Form Submitted!"+JSON.stringify(this.form.value));
+          this.form.reset();
+        },
+        error => {
+          console.log(error);
+        })
+      
+    }
+  }
 
 }

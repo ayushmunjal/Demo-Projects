@@ -16,7 +16,7 @@ export class PersonService {
 
   constructor(private http: Http) { }
 
-  get():Observable<any>{
+  get():Observable<Person[]>{
     return this.http.get(this.url+'persons')
     .timeout(3000)
     .map((response:Response) => response.json())

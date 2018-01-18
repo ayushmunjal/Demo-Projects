@@ -19,7 +19,7 @@ export class ActivityComponent implements OnInit {
   }
 
   getActivity(){
-    this.activityService.getActivity().subscribe(
+    this.activityService.get().subscribe(
       data => {
         this.activity=data.map(a=>({id:a.id,name:a.name,date:new Date().toLocaleDateString()}));
         console.log(JSON.stringify(data));

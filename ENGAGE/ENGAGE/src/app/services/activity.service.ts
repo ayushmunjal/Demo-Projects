@@ -16,7 +16,7 @@ export class ActivityService {
 
   constructor(private http: Http) { }
 
-  getActivity():Observable<Activity[]>{
+  get():Observable<Activity[]>{
     return this.http.get(this.url)
     .timeout(3000)
     .map((response:Response) => response.json())
