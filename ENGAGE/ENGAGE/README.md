@@ -21,3 +21,5 @@ You can then access ENGAGE here: `http://localhost:4200/`.
 The following items should be installed in your system:
 * Node.js 
 * git command line tool 
+
+![alt text](https://raw.githubusercontent.com/ayushmunjal/Demo-Projects/edit/master/ENGAGE/ENGAGE/src/assets/images/1606-diving-635.jpg)
