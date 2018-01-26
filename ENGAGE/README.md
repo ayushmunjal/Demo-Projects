@@ -5,8 +5,8 @@ This is a demo project for activity sign-up for employee engagement. This websit
 ## Running Engage locally
 
 ```
-	git clone https://github.com/ayushmunjal/CurrencyConverter.git
-	cd CurrencyConverter
+	git clone https://github.com/ayushmunjal/Demo-Projects.git
+	cd Engage
 	npm install
 	npm start
 ```
