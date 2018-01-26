@@ -13,7 +13,7 @@ This is a demo project for activity sign-up for employee engagement. This websit
 
 You can then access ENGAGE here: `http://localhost:4200/`. 
 
-![Home Page Image](src/assets/images/homePage.jpg)
+![Home Page Image](src/assets/images/homePage.png)
 
 ## Working with ENGAGE
 
