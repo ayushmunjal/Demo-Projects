@@ -13,6 +13,7 @@ This is a demo project for activity sign-up for employee engagement. This websit
 
 You can then access ENGAGE here: `http://localhost:4200/`. 
 
+![Home Page Image](src/assets/images/1606-diving-635.jpg)
 
 ## Working with ENGAGE
 
@@ -22,4 +23,3 @@ The following items should be installed in your system:
 * Node.js 
 * git command line tool 
 
-![alt text](src/assets/images/1606-diving-635.jpg)

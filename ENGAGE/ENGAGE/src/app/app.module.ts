@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ActivityComponent } from './activity/activity.component';
 import { SuccessComponent } from './success/success.component';
 import { AboutComponent } from './about/about.component';
-import {DataTableModule,DropdownModule,SharedModule} from 'primeng/primeng';
+import {DataTableModule,DropdownModule,SharedModule,CheckboxModule} from 'primeng/primeng';
 import { ActivityService } from './services/activity.service';
 import { PersonService } from './services/person.service';
 import { FormsModule }   from '@angular/forms';
@@ -20,7 +20,7 @@ import { FormsModule }   from '@angular/forms';
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, AppRoutingModule, FormsModule,
-    DataTableModule,SharedModule, HttpModule, DropdownModule
+    DataTableModule,SharedModule, HttpModule, DropdownModule, CheckboxModule
   ],
   providers: [PersonService,ActivityService],
   bootstrap: [AppComponent]

@@ -18,7 +18,7 @@ export class PersonService {
 
   get():Observable<Person[]>{
     return this.http.get(this.url+'persons')
-    .timeout(3000)
+    .timeout(5000)
     .map((response:Response) => response.json())
     .catch(this.handleError);
   }
@@ -31,7 +31,7 @@ export class PersonService {
     formData.append('activityId',person.activityId);
     formData.append('comments',person.comments);
     return this.http.post(this.url+'add',formData)
-    .timeout(3000)
+    .timeout(7000)
     .map((response:Response) => response)
     .catch(this.handleError);
   }

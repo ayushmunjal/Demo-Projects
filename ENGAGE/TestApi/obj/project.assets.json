@@ -12535,30 +12535,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sony\\.nuget\\packages\\": {},
+    "C:\\Users\\qutyj\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ayush\\DemoProject\\ENGAGE\\TestApi\\TestApi.csproj",
+      "projectUniqueName": "q:\\Ayush\\GutHub - Demo - Projects\\ENGAGE\\TestApi\\TestApi.csproj",
       "projectName": "TestApi",
-      "projectPath": "D:\\ayush\\DemoProject\\ENGAGE\\TestApi\\TestApi.csproj",
-      "packagesPath": "C:\\Users\\Sony\\.nuget\\packages\\",
-      "outputPath": "D:\\ayush\\DemoProject\\ENGAGE\\TestApi\\obj\\",
+      "projectPath": "q:\\Ayush\\GutHub - Demo - Projects\\ENGAGE\\TestApi\\TestApi.csproj",
+      "packagesPath": "C:\\Users\\qutyj\\.nuget\\packages\\",
+      "outputPath": "q:\\Ayush\\GutHub - Demo - Projects\\ENGAGE\\TestApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sony\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\qutyj\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

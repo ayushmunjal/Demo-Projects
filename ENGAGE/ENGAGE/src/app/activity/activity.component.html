@@ -8,7 +8,11 @@
                 <p-dataTable [value]="activity" [rows]="5" [paginator]="true" [responsive]="true" >
                     <p-column field="id" header="S.No." [style]="{'width': '10%'}"></p-column>
                     <p-column field="name" header="Activity"></p-column>
-                    <p-column field="date" header="Next Start Date"></p-column>
+                    <p-column field="date" header="Next Event Date">
+                        <ng-template  let-col let-act="rowData" pTemplate="body">
+                            {{act[col.field] | date : 'fullDate'}}
+                        </ng-template>
+                    </p-column>
                 </p-dataTable>
             </div>
         </div>
