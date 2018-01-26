@@ -1,0 +1,10 @@
+Q:\Ayush\sunwing\Customer Manager\CM Api\bin\Debug\netcoreapp2.0\CMApi.deps.json
+Q:\Ayush\sunwing\Customer Manager\CM Api\bin\Debug\netcoreapp2.0\CMApi.runtimeconfig.json
+Q:\Ayush\sunwing\Customer Manager\CM Api\bin\Debug\netcoreapp2.0\CMApi.runtimeconfig.dev.json
+Q:\Ayush\sunwing\Customer Manager\CM Api\bin\Debug\netcoreapp2.0\CMApi.dll
+Q:\Ayush\sunwing\Customer Manager\CM Api\bin\Debug\netcoreapp2.0\CMApi.pdb
+Q:\Ayush\sunwing\Customer Manager\CM Api\obj\Debug\netcoreapp2.0\CMApi.csproj.CoreCompileInputs.cache
+Q:\Ayush\sunwing\Customer Manager\CM Api\obj\Debug\netcoreapp2.0\CMApi.AssemblyInfoInputs.cache
+Q:\Ayush\sunwing\Customer Manager\CM Api\obj\Debug\netcoreapp2.0\CMApi.AssemblyInfo.cs
+Q:\Ayush\sunwing\Customer Manager\CM Api\obj\Debug\netcoreapp2.0\CMApi.dll
+Q:\Ayush\sunwing\Customer Manager\CM Api\obj\Debug\netcoreapp2.0\CMApi.pdb
