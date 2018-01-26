@@ -38,5 +38,5 @@ You can then access ENGAGE here: `http://localhost:4200/`.
 The following items should be installed in your system:
 * Node.js 
 * git command line tool 
-* dotnet CORE command line tool 2.x
+* dotnet command line tool (.Net Core 2.x)
 
