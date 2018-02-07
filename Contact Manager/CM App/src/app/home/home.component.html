@@ -1,121 +1,104 @@
-<section class="container">
+<section class="container pull-right">
     <br/><br/><br/>
-    <div class="panel panel-default col-md-6 col-md-offset-3 col-sm-offset-1 col-sm-10 col-xs-12">
+    <div class="panel panel-default col-md-6 col-md-offset-5  col-md-6 col-md-offset-6 col-sm-offset-1 col-sm-10 col-xs-12">
         <div class="panel-body text-center">
-            <h1>Let's Engage!</h1>
+            <h1>Making Contact Management Easy!</h1>
             <hr class="heading-hr">
             <div>
                 <b>
-                Welcome to the employee activity app. Know about upcoming activities, plans 
-                and register for the interested ones. Whether it is for fun, exploration, 
-                learn or join a hobby. Come be a part of fun extravaganza. 
+                Welcome to the contact manager app. Maintain your contacts with ease, perform all 
+                opertion like Add, update, remove in a user-friendly way.
                 </b>
             </div>
 
             <br/>
 
-            <button class="btn btn-danger"  data-toggle="modal" data-target="#sign-up-form">Get Started</button>
+            <button class="btn btn-primary"  data-toggle="modal" data-target="#navigate-modal">Get Started</button>
 
         </div>
     </div>
 </section>
 
-<div id="sign-in-form" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-sm">
+<div id="navigate-modal" class=" modal fade" role="dialog">
+    <div  class="modal-dialog modal-md" >
         <div class="modal-content">
-            <form method="post" >
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Sign In</h4>
+                <h4 class="modal-title">What would you like to do!</h4>
             </div>
-            <div class="modal-body">
-                    <div class="col-xs-12">
-                        <!-- Email -->
-                        <input name="email" class="form-control" type="email" placeholder="Email" required>
-                    </div>
-                    <br/><br/>
-                    <div class="col-xs-12">
-                        <!-- Password -->
-                        <input name="password" class="form-control" type="pass" placeholder="Password" required>
-                    </div>
-                    <br/><br/>
-                    <div class="col-xs-12">
-                        <div class="text-center">
-                            <input type="checkbox" id="remember-me">
-                            <label for="remember-me">Remember me</label>
-                        </div>
-                    </div>
-                    <br/>
+            <div class="modal-body text-navigate">
+                <br>
+                <div class="col-md-6 space"><button class="edit-btn text-primary" (click)="add()"><i class="fa fa-user-plus"></i><br>Add Contact</button></div>
+                <div class="col-md-6 "><button class="edit-btn text-primary" [routerLink]="['/contacts']"><i class="fa fa-edit"></i><br>View/Edit Contacts</button></div>
             </div>
-            <div class="modal-footer">
-                <div class="btn-form text-right col-xs-12 col-md-12">
-                    <button class="btn btn-danger col-xs-12 col-md-12 col-sm-12">Sign In</button>
-                </div>
-            </div>
-        </form>
+            <div class="modal-footer"></div>
         </div>
     </div>
 </div>
 
-<div id="sign-up-form" class=" modal fade" role="dialog">
-    <div class="modal-dialog modal-sm" >
-        <div class="modal-content">
-            <form method="post" novalidate #personForm="ngForm"  (ngSubmit)="onSubmit()">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Sign Up</h4>
-            </div>            
-            <div class="modal-body">
-                <div class="col-xs-12">
-                    <!-- First Name -->
-                    <input name="firstName" ngModel #firstName="ngModel" class="form-control" 
-                    [ngClass]="{'error': !(firstName.valid || (firstName.pristine && !personForm.submitted))}" type="text" placeholder="First Name*" required>
+<div id="add-form" class=" modal fade" role="dialog">
+        <div class="modal-dialog modal-sm" >
+            <div class="modal-content">
+                <form method="post" novalidate #personForm="ngForm"  (ngSubmit)="onSubmit()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">{{modalHeader}}</h4>
+                </div>            
+                <div class="modal-body">
+                    <input *ngIf="this.submitBtn!='Add'" name="id" [ngModel]="person.id" type="text" hidden>
+                    <div class="col-xs-12">
+                        <!-- First Name -->
+                        <input name="first" [ngModel]="person.name.first" #first="ngModel" class="form-control" 
+                        [ngClass]="{'error': !(first.valid || (first.pristine && !personForm.submitted))}" type="text" placeholder="First Name*" required>
+                    </div>
+                    <br/><br/>
+                    <div class="col-xs-12">
+                        <!-- Last Name -->
+                        <input name="last" [ngModel]="person.name.last" #last="ngModel" class="form-control" type="text" 
+                        [ngClass]="{'error': !(last.valid || (last.pristine && !personForm.submitted))}" placeholder="Last Name*" required>
+                    </div>
+                    <br/><br/>
+                    <div class="col-xs-12">
+                        <!-- Type -->
+                        <p-dropdown [options]="typeRef" [(ngModel)]="person.type" #type="ngModel" name="type" [style]="{'width':'100%'}" 
+                        [ngClass]="{'error': !(type.valid || (type.pristine && !personForm.submitted))}" [required]="true"></p-dropdown>
+                    </div>
+                    <div  *ngIf="isType('Customer')"><br/><br/></div>
+                    <div class="col-xs-12 ui-fluid" *ngIf="isType('Customer')">
+                        <!-- Birthday -->
+                        <p-calendar name="birthday" [ngModel]="person.birthday" #birthday="ngModel" styleClass="wid100" [showIcon]="true" placeholder="Birthday (mm/dd/yyyy)" 
+                        [ngClass]="{'error': !(birthday.valid || (birthday.pristine && !personForm.submitted))}"></p-calendar>
+                    </div>
+                    <div  *ngIf="isType('Customer')"><br/><br/></div>
+                    <div class="col-xs-12" *ngIf="isType('Customer')">
+                        <!-- Email -->
+                        <input name="email" [ngModel]="person.email" #email="ngModel" class="form-control" type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,6}$"
+                        [ngClass]="{'error': !(email.valid || (email.pristine && !personForm.submitted))}" placeholder="Email*" required>
+                    </div>
+                    <div  *ngIf="isType('Supplier')"><br/><br/></div>
+                    <div class="col-xs-12" *ngIf="isType('Supplier')">
+                        <!-- Telephone -->
+                        <input name="telephone" [ngModel]="person.telephone" #telephone="ngModel" class="form-control" type="number" 
+                        maxlength="12" minlength="7" step="1" placeholder="telephone*"
+                        [ngClass]="{'error': !(telephone.valid || (telephone.pristine && !personForm.submitted))}"  required>
+                    </div>
+                    <br/>
+                    <div class="text-center" *ngIf="error.active">
+                        <br/>
+                        <!-- Modal Error Message -->
+                        <p-message  severity="error" [text]="error.text"></p-message>
+                    </div>
                 </div>
-                <br/><br/>
-                <div class="col-xs-12">
-                    <!-- Last Name -->
-                    <input name="lastName" ngModel #lastName="ngModel" class="form-control" type="text" 
-                    [ngClass]="{'error': !(lastName.valid || (lastName.pristine && !personForm.submitted))}" placeholder="Last Name*" required>
+                <div class="modal-footer">
+                    <div class="btn-form text-center col-xs-12">
+                        <button type="submit" [disabled]="submitBtn=='loading..'" class="btn btn-primary  col-xs-12 col-md-12 col-sm-12" >{{submitBtn}}</button>
+                    </div>
                 </div>
-                <br/><br/>
-                <div class="col-xs-12">
-                    <!-- Email -->
-                    <input name="email" ngModel #email="ngModel" class="form-control" type="email" pattern="[^ @]*@[^ @]*"
-                    [ngClass]="{'error': !(email.valid || (email.pristine && !personForm.submitted))}" placeholder="Email*" required>
-                </div>
-                <br/><br/>
-                <div class="col-xs-12">
-                    <!-- Activity -->
-                    <p-dropdown [options]="activity" #activityM="ngModel" name="activityId" ngModel [style]="{'width':'100%'}" 
-                    [ngClass]="{'error': !(activityM.valid || (activityM.pristine && !personForm.submitted))}" [required]="true"></p-dropdown>
-                </div>
-                <br/><br/>
-                <div class="col-xs-12">
-                    <!-- Comments -->
-                    <input name="comments" ngModel #comments="ngModel" class="form-control" type="text" 
-                    [ngClass]="{'error': !(comments.valid || (comments.pristine && !personForm.submitted))}" placeholder="Comments" required>
-                </div>
-                <br/><br/>
-                <div class="col-xs-12">
-                        <input type="checkbox" name="agreement" ngModel #agreement="ngModel" required>
-                        <label for="agreement">I agree to T&C</label>
-                        <span [hidden]="(agreement.valid || !personForm.submitted)" class="text-danger">*</span>
-                </div>
-                <br/>
-                <div class=" text-center text-danger">
-                    <span  *ngIf="error">Oops! Something is not right..<br> Please try again later!</span>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="btn-form text-center col-xs-12">
-                    <button type="submit" class="btn btn-danger  col-xs-12 col-md-12 col-sm-12" >Sign Up</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        </div>
     </div>
-    </div>
-</div>

@@ -1,0 +1,110 @@
+<section class="container">
+    <br/><br/>
+    <div class="panel panel-default col-md-10 col-md-offset-1 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel-body text-right">
+            <strong class="pull-left header">Manage Contacts</strong>
+            
+            <input [hidden]="!search" pInputText  #gb type="text" placeholder="Global search">
+            <button class="edit-btn header text-right text-primary" pTooltip="Search Contact" (click)="search=!search">
+                    <i class="fa fa-search"></i></button> &nbsp;
+            <button class="edit-btn header text-right text-primary" pTooltip="Refresh" (click)="dt.reset(); gb.value='';">
+                    <i class="fa fa-undo"></i></button> &nbsp;
+            <a href="#" class="pull-right header text-primary" pTooltip="Add New Contact" (click)="add()"  data-toggle="modal" data-target="#add-edit-form">
+                <i class="fa fa-user-plus"></i></a>
+            <hr class="heading-hr">
+            <div Class="padding">
+                <p-dataTable #dt [value]="personAll()" [rows]="5" [paginator]="true" [loading]="loading" 
+                [style]="{'overflow':'hidden'}" [responsive]="true" sortable="true" [globalFilter]="gb" >
+                    <p-column field="id" header="S.No." [style]="{'width': '10%'}">
+                        <ng-template let-per="rowData" let-ri="rowIndex" pTemplate="body">
+                            <span>{{ri+1}}</span>
+                        </ng-template>
+                    </p-column>
+                    <p-column field="name.first" header="First Name" [sortable]="true"></p-column>
+                    <p-column field="name.last" header="Last Name" [sortable]="true"></p-column>
+                    <p-column field="birthday" header="Birthday" [sortable]="true">
+                        <ng-template let-col let-per="rowData" pTemplate="body">
+                            <span>{{per[col.field] | date:'mediumDate'}}</span>
+                        </ng-template>
+                    </p-column>
+                    <p-column field="email" header="Email" [style]="{'overflow':'hidden'}"[sortable]="true"></p-column>
+                    <p-column field="telephone" header="Telephone"  [style]="{'overflow':'hidden'}" [sortable]="true"></p-column>
+                    <p-column field="type" header="Type" [sortable]="true"></p-column>
+                    <p-column header="" [style]="{'width': '7%','padding-left':'1%'}">
+                        <ng-template let-col let-per="rowData" pTemplate="body">
+                            <button class="edit-btn" pTooltip="Edit" (click)="edit(per)"  data-toggle="modal" data-target="#add-edit-form"><i class="fa fa-edit"></i></button>
+                            <button class="edit-btn" pTooltip="Delete" (click)="delete(per)"><i class="fa fa-close"></i></button>
+                        </ng-template>
+                    </p-column>
+                </p-dataTable>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="add-edit-form" class=" modal fade" role="dialog">
+        <div class="modal-dialog modal-sm" >
+            <div class="modal-content">
+                <form method="post" novalidate #personForm="ngForm"  (ngSubmit)="onSubmit()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">{{modalHeader}}</h4>
+                </div>            
+                <div class="modal-body">
+                    <input *ngIf="this.submitBtn!='Add'" name="id" [ngModel]="person.id" type="text" hidden>
+                    <div class="col-xs-12">
+                        <!-- First Name -->
+                        <input name="first" [ngModel]="person.name.first" #first="ngModel" class="form-control" 
+                        [ngClass]="{'error': !(first.valid || (first.pristine && !personForm.submitted))}" type="text" placeholder="First Name*" required>
+                    </div>
+                    <br/><br/>
+                    <div class="col-xs-12">
+                        <!-- Last Name -->
+                        <input name="last" [ngModel]="person.name.last" #last="ngModel" class="form-control" type="text" 
+                        [ngClass]="{'error': !(last.valid || (last.pristine && !personForm.submitted))}" placeholder="Last Name*" required>
+                    </div>
+                    <br/><br/>
+                    <div class="col-xs-12">
+                        <!-- Type -->
+                        <p-dropdown [options]="typeRef" [(ngModel)]="person.type" #type="ngModel" name="type" [style]="{'width':'100%'}" 
+                        [ngClass]="{'error': !(type.valid || (type.pristine && !personForm.submitted))}" [required]="true"></p-dropdown>
+                    </div>
+                    <div  *ngIf="isType('Customer')"><br/><br/></div>
+                    <div class="col-xs-12 ui-fluid" *ngIf="isType('Customer')">
+                        <!-- Birthday -->
+                        <p-calendar name="birthday" [ngModel]="person.birthday" #birthday="ngModel" styleClass="wid100" [showIcon]="true" placeholder="Birthday (mm/dd/yyyy)" 
+                        [ngClass]="{'error': !(birthday.valid || (birthday.pristine && !personForm.submitted))}"></p-calendar>
+                    </div>
+                    <div  *ngIf="isType('Customer')"><br/><br/></div>
+                    <div class="col-xs-12" *ngIf="isType('Customer')">
+                        <!-- Email -->
+                        <input name="email" [ngModel]="person.email" #email="ngModel" class="form-control" type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,6}$"
+                        [ngClass]="{'error': !(email.valid || (email.pristine && !personForm.submitted))}" placeholder="Email*" required>
+                    </div>
+                    <div  *ngIf="isType('Supplier')"><br/><br/></div>
+                    <div class="col-xs-12" *ngIf="isType('Supplier')">
+                        <!-- Telephone -->
+                        <input name="telephone" [ngModel]="person.telephone" #telephone="ngModel" class="form-control" type="number" 
+                        maxlength="12" minlength="7" step="1" placeholder="telephone*"
+                        [ngClass]="{'error': !(telephone.valid || (telephone.pristine && !personForm.submitted))}"  required>
+                    </div>
+                    <br/>
+                    <div class="text-center" *ngIf="error.active">
+                        <br/>
+                        <!-- Modal Error Message -->
+                        <p-message  severity="error" [text]="error.text"></p-message>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-form text-center col-xs-12">
+                        <button type="submit" [disabled]="submitBtn=='loading..'" class="btn btn-primary  col-xs-12 col-md-12 col-sm-12" >{{submitBtn}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>

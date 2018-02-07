@@ -1,12 +1,11 @@
 export class Person
-    {
-        id;
-        firstName;
-        lastName;
-        email;
-        password;
-        activityId;
-        comments;
-        
-    }
+{
+    id : Number;
+    name : Name;
+}
 
+export class Name
+{
+    first: string;
+    last: string;
+}

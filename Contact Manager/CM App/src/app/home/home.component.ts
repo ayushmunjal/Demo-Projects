@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivityService } from '../services/activity.service';
-import { PersonService } from '../services/person.service';
+import { Component, OnInit,OnDestroy, ViewChild } from '@angular/core';
+import { CustomerService } from '../services/customer.service';
+import { SupplierService } from '../services/supplier.service';
 import {SelectItem} from 'primeng/primeng';
 import { Person } from '../Models/Person';
 import { Router,ActivatedRoute } from '@angular/router';
+import { PersonAll } from '../Models/PersonAll';
 
 declare var jQuery;
 
@@ -12,53 +13,88 @@ declare var jQuery;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  error: boolean;
-  activity;
-  person: Person;
+export class HomeComponent implements OnInit, OnDestroy {
+  typeRef: { value: string; label: string; }[];
+  loading: boolean;
+
   @ViewChild('personForm') form: any;
 
-  constructor(private activityService : ActivityService, private _router: Router,
-  private personService: PersonService) { }
+  submitBtn: string;
+  modalHeader: string;
+  type;
+  person;
+  errMsg="Server Error.. Please try after some time!";
+  error={active:false,text:this.errMsg};
+  
+  constructor(private customerService : CustomerService, private _router: Router,
+  private supplierService: SupplierService) { }
 
   ngOnInit() {
-    this.person = new Person();
-    this.getActivity();
-  }
-
-  getActivity(){
-    this.activityService.get().subscribe(
-      data => {
-        this.activity=data.map(a=>({value:a.id,label:a.name}));
-        this.activity.unshift({value:null,label:"Select Activity"})
-        console.log(JSON.stringify(data));
-      },
-      error => {
-        this.error=true;
-        console.log(error);
-      }
-    )
+    this.person= {name:{first:'',last:''}};
+    this.getType();
   }
 
   onSubmit(){
     if (this.form.valid) {
-      console.log(JSON.stringify(this.form.value));
-      this.personService.add(this.form.value).subscribe(
-        data => {
-          console.log(data);
-          jQuery('#sign-up-form').modal('hide');
-          this._router.navigate(['/success']);
-          console.log("Form Submitted!"+JSON.stringify(this.form.value));
-          this.form.reset();
-          this.form.form.markAsPristine();
-          this.error=false;
-        },
-        error => {
-          this.error=true;
-          console.log(error);
-        })
+
+      this.submitBtn="loading..";
+
+      var person= this.form.value;
+      person.name={'first':person.first,'last':person.last};
       
+      if (person.type.includes("Customer"))
+        this.addCustomer(person);
+      else
+        this.addSupplier(person);
     }
+  }
+
+  addSupplier(person){
+    this.supplierService.add(person).subscribe(data => this.responseHandle(),error=>this.handleError(error,"add"));
+  }
+
+  addCustomer(person){
+    this.customerService.add(person).subscribe(data => this.responseHandle(),error=>this.handleError(error,"add"));
+  }
+
+  responseHandle(){
+    jQuery('#add-form').modal('hide');
+    this.error.active=false;
+    this.loading=false;
+    this._router.navigate(['/contacts']);
+  }
+
+  handleError(error,type){
+    this.error.active=true;
+    this.error.text = error.status==400 ? error.text() : this.errMsg;
+    this.submitBtn=type;
+  }
+  
+  add(){
+    this.modalHeader = "Add New Contact";
+    this.submitBtn = "Add";
+    jQuery('#navigate-modal').modal('hide');
+    jQuery('#add-form').modal('show');
+    this.form.resetForm();
+    this.ngOnInit();
+    this.error.active=false;
+  }
+
+  getType(){
+    this.typeRef = [{value:null,label:"Select Type"},
+    {value:"Customer",label:"Customer"},
+    {value:"Supplier",label:"Supplier"}];
+  }
+
+  isType(type){
+    if (this.person.type==type)
+      return true;
+    return false;
+  }
+
+  ngOnDestroy(){
+    jQuery('#navigate-modal').modal('hide');
+    jQuery('#add-form').modal('hide');
   }
 
 }

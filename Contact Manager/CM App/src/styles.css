@@ -8,11 +8,12 @@ body{
     background-size: 100% 100vh;
     background-image: url('./assets/images/1606-diving-635.jpg');
     background-repeat: no-repeat;
-    background-color: rgb(3, 53, 49)
+    background-color: black;
 }
+
 body .ui-datatable .ui-datatable-thead > tr > th,
 body .ui-datatable .ui-datatable-tfoot > tr > td {
-    background-color: rgb(7, 8, 44);
+    background-color: rgb(59, 95, 252);
     color: white;
     font-weight: 500;
 }
@@ -25,24 +26,45 @@ body .ui-datatable .ui-datatable-header{
 }
 
 .navbar{
-    background-color: rgba(0, 0, 0, 0.493)
+    background-color: rgba(0, 0, 0, 0.593);
 }
-.navbar-brand{
+
+.nav.navbar-nav.navbar-right li a {
     color: white;
 }
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
 .logo{
     font-size: 10px;
-    color: rgb(243, 7, 7);
+    color: rgb(0, 47, 255);
 }
 .heading-hr{
     border-width: 10% 10%;
-    border-color: brown
+    border-color: rgb(0, 47, 255);
 }
 
 .panel{
-    background-color: rgba(240, 248, 255, 0.692)
+    background-color: rgba(240, 248, 255, 0.726)
 }
 
 .error{
 border-left: 5px solid #a94442; 
 }
+
+.edit-btn{
+    background-color: rgba(255, 255, 255, 0);
+    /* color: black; */
+    border: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-size: 800px 100vh;
+        background-image: url('./assets/images/1606-diving-635.jpg');
+        background-repeat: no-repeat;
+        background-color: black
+    }
+}
+

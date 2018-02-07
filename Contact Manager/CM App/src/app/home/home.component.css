@@ -1,0 +1,16 @@
+.text-navigate{
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 30%; 
+}
+
+@media only screen and (max-width: 768px) {
+    .text-navigate{
+        font-size: 30px;
+        text-align: center;
+        padding-bottom: 5%; 
+    }
+    .space{
+        padding-bottom: 5%;
+    }
+}

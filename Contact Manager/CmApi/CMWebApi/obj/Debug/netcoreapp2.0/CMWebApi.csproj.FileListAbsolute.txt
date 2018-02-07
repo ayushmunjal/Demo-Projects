@@ -1,0 +1,22 @@
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.csprojResolveAssemblyReference.cache
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.csproj.CoreCompileInputs.cache
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.AssemblyInfoInputs.cache
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.AssemblyInfo.cs
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.deps.json
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.runtimeconfig.json
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.runtimeconfig.dev.json
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.dll
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.pdb
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.dll
+Q:\Ayush\sunwing\Contact Manager\CM Api 2\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.pdb
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.deps.json
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.runtimeconfig.json
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.runtimeconfig.dev.json
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.dll
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\bin\Debug\netcoreapp2.0\CMWebApi.pdb
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.csprojResolveAssemblyReference.cache
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.csproj.CoreCompileInputs.cache
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.AssemblyInfoInputs.cache
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.AssemblyInfo.cs
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.dll
+Q:\Ayush\sunwing\Contact Manager\CmApi\CMWebApi\obj\Debug\netcoreapp2.0\CMWebApi.pdb
