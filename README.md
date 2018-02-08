@@ -37,7 +37,7 @@ You can check API here: `http://localhost:5000/api/values/`.
 
 You can then access CONTACT MANAGER here: `http://localhost:4200/`. 
 
-![Home Page Image](ENGAGE/src/assets/images/homePage.png)
+![Home Page Image](Contact Manager/CM App/src/assets/images/homePage.png)
 
 ## Working with CONTACT MANAGER
 
