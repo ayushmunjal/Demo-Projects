@@ -13,7 +13,7 @@
                 <i class="fa fa-user-plus"></i></a>
             <hr class="heading-hr">
             <div Class="padding">
-                <p-dataTable #dt [value]="personAll()" [rows]="5" [paginator]="true" [loading]="loading" 
+                <p-dataTable #dt [value]="personAll()" [rows]="4" [paginator]="true" [loading]="loading" 
                 [style]="{'overflow':'hidden'}" [responsive]="true" sortable="true" [globalFilter]="gb" >
                     <p-column field="id" header="S.No." [style]="{'width': '10%'}">
                         <ng-template let-per="rowData" let-ri="rowIndex" pTemplate="body">

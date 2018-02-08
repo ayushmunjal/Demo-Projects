@@ -7,7 +7,6 @@ import {AppRoutingModule}  from './app-routing.module'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { SuccessComponent } from './success/success.component';
 import {DataTableModule,DropdownModule,SharedModule, CalendarModule, GrowlModule,InputTextModule,
   TooltipModule, ConfirmDialogModule, ConfirmationService, MessagesModule, MessageModule} from 'primeng/primeng';
 import {MessageService} from 'primeng/components/common/messageservice';

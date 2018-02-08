@@ -26,6 +26,7 @@ export class ContactsComponent implements OnInit, OnDestroy,DoCheck {
   submitBtn="Add";
   customers;
   suppliers;
+  search;
   errMsg="Server Error.. Please try after some time!";
   error={active:false,text:this.errMsg};
 
